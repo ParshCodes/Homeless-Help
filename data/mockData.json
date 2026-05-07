@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "_id": "65a0f1f6e1388d1b8c8d1a01",
+      "name": "Jordan Lee",
+      "sex": "Non-binary",
+      "dob": "1985-03-22",
+      "qr_code_url": "SAFE-JORDAN-001",
+      "emergency_contacts": [
+        { "name": "Case Worker", "phone": "+15550000001", "email": "caseworker@safespot.org" }
+      ],
+      "medical_info_encrypted": {
+        "conditions": "Hypertension",
+        "allergies": "Peanuts",
+        "meds": "Lisinopril",
+        "vaccinations": "Tetanus 2022"
+      },
+      "service_history": [
+        { "field": "Shelter", "editor": "OutreachBot", "timestamp": "2024-01-12T08:00:00Z", "note": "Shelter intake complete" }
+      ],
+      "urgent_flag": false,
+      "consent_expires": "2024-12-31"
+    }
+  ],
+  "scans": [
+    {
+      "_id": "65a0f2a1e1388d1b8c8d1a02",
+      "user_id": "65a0f1f6e1388d1b8c8d1a01",
+      "org_id": "demo-org",
+      "coords": { "lat": 32.7157, "lon": -117.1611 },
+      "type": "Outreach",
+      "timestamp": "2024-01-13T12:00:00Z",
+      "security_hash": "mock-hash-abc123"
+    }
+  ],
+  "alerts": [
+    {
+      "_id": "65a0f2d4e1388d1b8c8d1a03",
+      "user_id": "65a0f1f6e1388d1b8c8d1a01",
+      "org_id": "demo-org",
+      "message": "Jordan Lee marked urgent",
+      "status": "active",
+      "timestamp": "2024-01-14T14:30:00Z",
+      "security_hash": "mock-hash-def456"
+    }
+  ]
+}

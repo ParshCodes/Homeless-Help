@@ -1,0 +1,14 @@
+{
+  "pages\\AdminAnalytics.jsx -> ../components/MapPanel": {
+    "id": "pages\\AdminAnalytics.jsx -> ../components/MapPanel",
+    "files": [
+      "static/chunks/src_components_MapPanel_jsx.js"
+    ]
+  },
+  "pages\\analytics.js -> ./AdminAnalytics": {
+    "id": "pages\\analytics.js -> ./AdminAnalytics",
+    "files": [
+      "static/chunks/src_pages_AdminAnalytics_jsx.js"
+    ]
+  }
+}
