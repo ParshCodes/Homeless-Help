@@ -1,1 +1,1 @@
-# Homeless-Help
+SDSU Hackathon - Homeless Application
