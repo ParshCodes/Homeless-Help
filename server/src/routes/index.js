@@ -180,7 +180,7 @@ router.post('/medicaid/eligibility', (req, res) => {
   return res.json({ status: 'inactive' });
 });
 
-router.post('/person/register', personUpload.single('photo'), requireSecuritySignature, async (req, res) => {
+router.post('/person/register', personUpload.single('photo'), async (req, res) => {
   try {
     const {
       name,
@@ -291,7 +291,7 @@ router.get('/person/:id', async (req, res) => {
   }
 });
 
-router.put('/person/:id', requireSecuritySignature, async (req, res) => {
+router.put('/person/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const updates = {
@@ -350,7 +350,7 @@ router.put('/person/:id', requireSecuritySignature, async (req, res) => {
   }
 });
 
-router.post('/person/:id/documents', requireSecuritySignature, personUpload.single('document'), async (req, res) => {
+router.post('/person/:id/documents', personUpload.single('document'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: 'Document is required.' });
   }
