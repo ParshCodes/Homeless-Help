@@ -4,10 +4,12 @@ dotenv.config();
 import twilio from "twilio";
 import nodemailer from "nodemailer";
 
-const client = twilio(
-  process.env.TWILIO_ACCOUNT_SID || "demo",
-  process.env.TWILIO_AUTH_TOKEN || "demo"
-);
+function getTwilioClient() {
+  const sid = process.env.TWILIO_ACCOUNT_SID;
+  const token = process.env.TWILIO_AUTH_TOKEN;
+  if (!sid || !sid.startsWith("AC") || !token) return null;
+  return twilio(sid, token);
+}
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || "smtp.example.com",
@@ -21,8 +23,9 @@ const transporter = nodemailer.createTransport({
 export async function sendEmergencyNotifications(user, alert) {
   const promises = [];
 
+  const client = getTwilioClient();
   user.emergency_contacts?.forEach((contact) => {
-    if (contact.phone) {
+    if (contact.phone && client) {
       promises.push(
         client.messages.create({
           to: contact.phone,
@@ -58,6 +61,9 @@ export async function sendPersonEmergencyNotifications(person, { message } = {})
   if (!contacts.length) {
     return { notified: 0 };
   }
+
+  const client = getTwilioClient();
+  if (!client) return { notified: 0 };
 
   const promises = contacts.map((contact) =>
     client.messages
